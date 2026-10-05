@@ -1,0 +1,9 @@
+{
+  "name": "tempmail",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-10-01",
+  "assets": { "directory": "./public", "run_worker_first": ["/api/*"] },
+  "durable_objects": { "bindings": [{ "name": "MAILBOX", "class_name": "Mailbox" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Mailbox"] }],
+  "vars": { "MAIL_DOMAIN": "wanzabigail.my.id", "TTL_MINUTES": "60" }
+}

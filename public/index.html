@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Kotak masuk email sementara dengan salin OTP dan akses tautan praktis."
+    />
+    <title>Temp Mail</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Temp Mail, halaman utama"
+          ><span class="brand-icon" aria-hidden="true">✉</span>Temp Mail<span
+            class="brand-tag"
+            >Sementara</span
+          ></a
+        >
+        <span class="status" id="status" role="status"
+          ><span class="dot"></span
+          ><span id="status-text">Menghubungkan…</span></span
+        >
+      </header>
+      <section class="intro">
+        <p class="eyebrow">EMAIL SEMENTARA, TANPA REPOT</p>
+        <h1>Satu alamat. Semua pesan.</h1>
+        <p>Terima email, salin kode OTP, dan buka tautan dari satu tempat.</p>
+      </section>
+      <section class="address-card" aria-labelledby="address-title">
+        <div class="address-top">
+          <h2 id="address-title">Alamat email Anda</h2>
+          <span class="tag">Tanpa registrasi</span>
+        </div>
+        <div class="address-row">
+          <div id="addr" class="address" aria-live="polite">Memuat alamat…</div>
+          <button class="primary" id="copy" disabled>Salin alamat</button>
+        </div>
+        <div class="controls">
+          <button id="new" disabled>
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M20 7v5h-5M4 17v-5h5" />
+              <path d="M6.1 6.1A8 8 0 0 1 20 12M4 12a8 8 0 0 0 13.9 5.9" /></svg
+            >Alamat baru
+          </button>
+          <form id="custom-form">
+            <label class="sr-only" for="custom">Nama alamat sendiri</label
+            ><input
+              id="custom"
+              placeholder="Nama pilihan Anda"
+              maxlength="40"
+              autocomplete="off"
+              autocapitalize="none"
+              spellcheck="false"
+            /><button id="set" type="submit" disabled>Pakai nama</button>
+          </form>
+        </div>
+        <p class="hint" id="hint">
+          Alamat baru siap digunakan setelah terhubung.
+        </p>
+      </section>
+      <p class="error" id="err" role="alert" hidden></p>
+      <div class="workspace">
+        <section class="panel inbox" aria-labelledby="inbox-title">
+          <div class="panel-header">
+            <div class="section-title">
+              <h2 id="inbox-title">Kotak masuk</h2>
+              <span class="count" id="count">0</span>
+            </div>
+            <button
+              class="compact"
+              id="refresh"
+              disabled
+              aria-label="Segarkan kotak masuk"
+              title="Segarkan kotak masuk"
+            >
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20 7v5h-5M4 17v-5h5" />
+                <path d="M6.1 6.1A8 8 0 0 1 20 12M4 12a8 8 0 0 0 13.9 5.9" />
+              </svg>
+            </button>
+          </div>
+          <div class="sync-note">Diperiksa otomatis setiap 5 detik</div>
+          <div id="list">
+            <div class="empty">
+              <span class="empty-icon" aria-hidden="true">✉</span>
+              <h3>Menyiapkan kotak masuk</h3>
+              <p>Tunggu sebentar, kami sedang menghubungkan alamat Anda.</p>
+            </div>
+          </div>
+          <div class="inbox-footer">
+            <span id="updated">Belum diperbarui</span
+            ><button class="danger compact" id="del" disabled>
+              Hapus semua
+            </button>
+          </div>
+        </section>
+        <section
+          class="panel reader"
+          id="view"
+          aria-label="Isi email"
+          aria-live="polite"
+        >
+          <div class="empty reader-empty">
+            <span class="empty-icon" aria-hidden="true">▤</span>
+            <h3>Pesan Anda, di sini</h3>
+            <p>
+              Pilih email di kotak masuk untuk membaca isi, menyalin OTP, atau
+              membuka tautan.
+            </p>
+          </div>
+        </section>
+      </div>
+      <footer class="footer">
+        <span>Hanya untuk email sementara.</span
+        ><span>Jangan gunakan untuk data sensitif atau akun penting.</span>
+      </footer>
+    </main>
+    <div class="toast" id="toast" role="status" hidden></div>
+  </body>
+</html>

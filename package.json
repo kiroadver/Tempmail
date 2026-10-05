@@ -1,0 +1,9 @@
+{
+  "name": "tempmail",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "deploy": "wrangler deploy", "dev": "wrangler dev" },
+  "dependencies": { "postal-mime": "^2.4.0" },
+  "devDependencies": { "wrangler": "^4.0.0" }
+}
